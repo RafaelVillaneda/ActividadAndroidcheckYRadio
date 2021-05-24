@@ -10,9 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     RadioButton radioDecimal,radioBinario,radioOctal,radioHexa;
     CheckBox checkBinario,checkOctal,checkHexa;
     TextView cajaNumeroIngresado,cajaResOctal,cajaResBinario,CajaresHexa;
+    byte checkSelec;
+
     int numeroIngresado;
 
     @Override
@@ -33,21 +36,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cajaResOctal=findViewById(R.id.cajaResultadoOctal);
         CajaresHexa=findViewById(R.id.cajaResultadoHexa);
 
+        cajaResBinario.setEnabled(false);
+        cajaResOctal.setEnabled(false);
+        CajaresHexa.setEnabled(false);
+
+    }
+    public void checkSelecy(View v){
+        if(v.getId()==R.id.checkBinario){
+            checkSelec=1;
+        }else if (v.getId()==R.id.checkOctal){
+            checkSelec=2;
+        }else{
+            checkSelec=3;
+        }
     }
 
     @Override
     public void onClick(View v) {
 
         boolean checked = ((RadioButton) v).isChecked();
-        boolean checked2=((CheckBox) v).isChecked();
+       // boolean checked2=((CheckBox) v).isChecked();
 
         switch (v.getId()){
-            case R.id.radioDecimal:
-                if (checked)
-                    Toast.makeText(this, "Decimal", Toast.LENGTH_LONG).show();
-                break;
             case R.id.radioBinario:
-                System.out.println("Se selecciono radio Binario");
+
+                Toast.makeText(this, "BINARIO", Toast.LENGTH_LONG).show();
+                cajaNumeroIngresado.setText("457");
+
+                break;
+            case R.id.radioDecimal:
+                System.out.println("Se selecciono radio Decimal");
+                if(cajaNumeroIngresado.getText().toString().isEmpty()){
+                    numeroIngresado=0;
+                    cajaNumeroIngresado.setText("0");
+                }else{
+                    numeroIngresado=Integer.parseInt(cajaNumeroIngresado.getText().toString());
+                    System.out.println("Casi entro-->"+checkBinario.isActivated());
+                    if(checkSelec==1){
+                        System.out.println("Entre");
+                        long resultado=decimalABinario(numeroIngresado);
+                        cajaResBinario.setText(resultado+"");
+                    }
+                }
                 break;
             case R.id.radioHexa:
                 System.out.println("Se selecciono radio Hexa");
@@ -72,4 +102,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return binario;
     }
+
 }
