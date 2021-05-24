@@ -65,6 +65,7 @@
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:text="@string/readio_binario" />
 
         <RadioButton
@@ -72,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:text="@string/radio_octal" />
 
         <RadioButton
@@ -79,6 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:text="@string/radioHexa" />
 
     </RadioGroup>
@@ -149,5 +152,16 @@
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/checkHexa"
         app:layout_constraintTop_toBottomOf="@+id/cajaResultadoOctal" />
+
+    <Button
+        android:id="@+id/btn_limpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onClick"
+        android:text="@string/btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaResultadoHexa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

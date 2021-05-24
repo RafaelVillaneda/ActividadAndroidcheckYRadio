@@ -7,5 +7,6 @@
     <string name="radioHexa">Hexadecimal</string>
 
     <string name="lbl_num">Ingresa el numero</string>
+    <string name="btn">Limpiar</string>
 
 </resources>

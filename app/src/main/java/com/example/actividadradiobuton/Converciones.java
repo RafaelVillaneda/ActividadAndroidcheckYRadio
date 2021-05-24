@@ -33,4 +33,20 @@ public class Converciones {
         }
         return hexadecimal;
     }
+    public  int binarioADecimal(int binario) {
+        int decimal = 0;
+        int potencia = 0;
+        // Ciclo infinito hasta que binario sea 0
+        while (true) {
+            if (binario == 0) {
+                break;
+            } else {
+                int temp = binario % 10;
+                decimal += temp * Math.pow(2, potencia);
+                binario = binario / 10;
+                potencia++;
+            }
+        }
+        return decimal;
+    }
 }
