@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ActividadRadioButon</string>
+    <string name="lbl_titulo">Conversor</string>
+    <string name="radio_decimal">Decimal</string>
+    <string name="readio_binario">Binario</string>
+    <string name="radio_octal">Octal</string>
+    <string name="radioHexa">Hexadecimal</string>
+
+    <string name="lbl_num">Ingresa el numero</string>
+
+</resources>
