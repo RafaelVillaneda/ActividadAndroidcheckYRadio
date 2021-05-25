@@ -93,7 +93,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.radioHexa:
                 System.out.println("Se selecciono radio Hexa");
-                
+                if(cajaNumeroIngresado.getText().toString().isEmpty()){
+                    cajaNumeroIngresado.setText("0");
+                    numeroIngresado=0;
+                }else{
+                    numeroIngresado=Integer.parseInt(cajaNumeroIngresado.getText().toString());
+                    if(checkSelec==1){
+                       int convercion= calculo.hexadecimalADecimal(cajaNumeroIngresado.getText().toString());
+                       cajaResBinario.setText(calculo.decimalABinario(convercion)+"");
+                    }else if(checkSelec==2){
+                        int convercion= calculo.hexadecimalADecimal(cajaNumeroIngresado.getText().toString());
+                        String res=calculo.decimalAOctal(convercion);
+                        cajaResOctal.setText(res);
+                    }else{
+                        CajaresHexa.setText(cajaNumeroIngresado.getText().toString());
+                    }
+                }
                 break;
             case R.id.radioOctal:
                 System.out.println("Se selecciono radio Octal");
@@ -120,7 +135,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     CajaresHexa.setText("");
                     cajaNumeroIngresado.setText("");
                     checkSelec=0;
-                    checkBinario.setActivated(false);
+                    checkBinario.setChecked(false);
+                    checkHexa.setChecked(false);
+                    checkOctal.setChecked(false);
+
+                    radioDecimal.setChecked(false);
+                    radioHexa.setChecked(false);
+                    radioOctal.setChecked(false);
+                    radioBinario.setChecked(false);
                 break;
 
             default:

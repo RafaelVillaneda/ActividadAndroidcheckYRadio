@@ -65,4 +65,15 @@ public class Converciones {
         }
         return decimal;
     }
+    public int hexadecimalADecimal(String hexadecimal) {
+        String caracteresHexadecimales = "0123456789ABCDEF";
+        hexadecimal = hexadecimal.toUpperCase();
+        int decimal = 0;
+        for (int i = 0; i < hexadecimal.length(); i++) {
+            char caracter = hexadecimal.charAt(i);
+            int posicionEnCaracteres = caracteresHexadecimales.indexOf(caracter);
+            decimal = 16 * decimal + posicionEnCaracteres;
+        }
+        return decimal;
+    }
 }
