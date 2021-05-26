@@ -45,11 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void checkSelecy(View v){
         if(v.getId()==R.id.checkBinario){
-            checkSelec=1;
+            if(checkBinario.isChecked())
+                checkSelec=1;
         }else if (v.getId()==R.id.checkOctal){
+            if(checkOctal.isChecked())
+                checkSelec=1;
             checkSelec=2;
         }else{
-            checkSelec=3;
+            if(checkHexa.isChecked())
+                checkSelec=3;
+
         }
     }
 
